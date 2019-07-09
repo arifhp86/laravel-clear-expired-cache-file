@@ -35,8 +35,10 @@ class ClearExpiredCommand extends Command
             'driver' => 'local',
             'root' => config('cache.stores.file.path')
         ];
-        config('filesystems.disks.fcache', $cacheDisk);
+
+        config(['filesystems.disks.fcache' => $cacheDisk]);
     }
+
     /**
      * Execute the console command.
      *
@@ -48,6 +50,7 @@ class ClearExpiredCommand extends Command
         $this->deleteEmptyFolders();
         $this->showResults();
     }
+
     private function deleteExpiredFiles()
     {
         $files = Storage::disk('fcache')->allFiles();
