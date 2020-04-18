@@ -14,7 +14,7 @@ composer require arifhp86/laravel-clear-expired-cache-file
    For **Laravel < 5.5**, add `CacheClearServiceProvider` to the providers array in config/app.php:
 
 ```php
-Arifhp86\ClearExpiredCacheFile\Providers\CacheClearServiceProvider::calss,
+Arifhp86\ClearExpiredCacheFile\Providers\CacheClearServiceProvider::class,
 ```
 
 ## Usage
