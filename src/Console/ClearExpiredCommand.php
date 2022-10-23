@@ -63,11 +63,13 @@ class ClearExpiredCommand extends Command
                 continue;
             }
 
-            // Grab the contents of the file
-            $contents = Storage::disk('fcache')->get($cachefile);
+            // Get the full path of the file
+            $fullpath = Storage::disk('fcache')->path($cachefile);
 
             // Get the expiration time
-            $expire = substr($contents, 0, 10);
+            $handle = fopen($fullpath, 'r');
+            $expire = fread($handle, 10);
+            fclose($handle);            
 
             // See if we have expired
             if(time() >= $expire) {
