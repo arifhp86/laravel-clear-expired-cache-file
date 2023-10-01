@@ -8,8 +8,9 @@
     "email": "arifhp86@gmail.com"
   }],
   "require": {
-    "php": ">=5.4.0",
-    "illuminate/support": ">=5.4.0"
+    "php": "^7.0|^8.0",
+    "laravel/framework": ">=5.5",
+    "wilderborn/partyline": "^1.0"
   },
   "autoload": {
     "psr-4": {
@@ -19,7 +20,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Arifhp86\\ClearExpiredCacheFile\\Providers\\CacheClearServiceProvider"
+        "Arifhp86\\ClearExpiredCacheFile\\ServiceProvider"
       ]
     }
   }
