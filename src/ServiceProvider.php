@@ -8,7 +8,6 @@ use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {
-
     /**
      * Register the service provider.
      *
@@ -21,13 +20,12 @@ class ServiceProvider extends BaseServiceProvider
             ->give(function () {
                 config(['filesystems.disks.cache-folder' => [
                     'driver' => 'local',
-                    'root' => config('cache.stores.file.path')
+                    'root' => config('cache.stores.file.path'),
                 ]]);
 
                 return Storage::disk('cache-folder');
             });
     }
-
 
     /**
      * Perform post-registration booting of services.

@@ -27,7 +27,6 @@ class ClearExpiredCommand extends Command
     /**
      * Create a new command instance.
      *
-     * @param CacheGarbageCollector $garbageCollector
      * @return void
      */
     public function __construct(CacheGarbageCollector $garbageCollector)
@@ -39,8 +38,6 @@ class ClearExpiredCommand extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
     public function handle(): int
     {

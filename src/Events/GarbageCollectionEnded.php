@@ -10,9 +10,13 @@ class GarbageCollectionEnded
     use Dispatchable;
 
     public $time;
+
     public $memory;
+
     public $expiredFiles;
+
     public $activeFiles;
+
     public $deletedDirectories;
 
     public function __construct(

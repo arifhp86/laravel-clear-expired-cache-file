@@ -13,10 +13,15 @@ use Wilderborn\Partyline\Facade as Partyline;
 class CacheGarbageCollector
 {
     private $filesystem;
+
     private $expiredFiles;
+
     private $activeFiles;
+
     private $disableDirectoryDelete = false;
+
     private $isDryRun = false;
+
     private $deletedDirectories = 0;
 
     public function __construct(Filesystem $filesystem)
@@ -37,7 +42,7 @@ class CacheGarbageCollector
         $memoryInBytes = memory_get_peak_usage(true);
 
         $time = Formatter::formatDuration($timeInSeconds);
-        $memory =  Formatter::formatSpace($memoryInBytes);
+        $memory = Formatter::formatSpace($memoryInBytes);
 
         Partyline::line("Duration: {$time}, Memory: {$memory}");
 
@@ -69,12 +74,12 @@ class CacheGarbageCollector
         Partyline::line('Scanning cache files...');
 
         foreach ($this->filesystem->allFiles() as $file) {
-            if($this->notACacheFile($file)) {
+            if ($this->notACacheFile($file)) {
                 continue;
             }
 
             $size = $this->filesystem->size($file);
-            if($this->fileIsExpired($file)) {
+            if ($this->fileIsExpired($file)) {
                 $this->expiredFiles->add($size);
                 if (! $this->isDryRun) {
                     $this->filesystem->delete($file);
@@ -83,7 +88,6 @@ class CacheGarbageCollector
                 $this->activeFiles->add($size);
             }
         }
-
 
         if (! $this->expiredFiles->getCount()) {
             Partyline::line('No expired cache file found!');
@@ -113,7 +117,7 @@ class CacheGarbageCollector
 
         Partyline::line('Scanning directories...');
 
-        foreach(array_reverse($this->filesystem->allDirectories()) as $dir) {
+        foreach (array_reverse($this->filesystem->allDirectories()) as $dir) {
             if (! $this->directoryIsEmpty($dir)) {
                 continue;
             }

@@ -5,6 +5,7 @@ namespace Arifhp86\ClearExpiredCacheFile\Support;
 class FileRegister
 {
     protected $count = 0;
+
     protected $size = 0;
 
     public function add(int $size)

@@ -8,7 +8,7 @@
     "email": "arifhp86@gmail.com"
   }],
   "require": {
-    "php": "^7.0|^8.0",
+    "php": "^8.0",
     "laravel/framework": ">=5.5",
     "wilderborn/partyline": "^1.0"
   },
@@ -23,5 +23,8 @@
         "Arifhp86\\ClearExpiredCacheFile\\ServiceProvider"
       ]
     }
+  },
+  "require-dev": {
+    "laravel/pint": "^1.13"
   }
 }
