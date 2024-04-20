@@ -73,6 +73,12 @@ class CacheGarbageCollector
                 continue;
             }
 
+            // Check if the file has not been already deleted by the app itself
+            if (! $this->filesystem->exists($file)) {
+                Partyline::alert("File {$file} not found!");
+                continue;
+            }
+
             $size = $this->filesystem->size($file);
             if($this->fileIsExpired($file)) {
                 $this->expiredFiles->add($size);
