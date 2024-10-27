@@ -155,6 +155,11 @@ class CacheGarbageCollector
         $expire = fread($handle, 10);
         fclose($handle);
 
+        // if the file is empty for some reason, we get an empty string
+        if ($expire === '') {
+            return 0;
+        }
+
         return $expire;
     }
 
