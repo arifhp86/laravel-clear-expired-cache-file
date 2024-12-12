@@ -9,6 +9,9 @@ use Wilderborn\Partyline\Facade as Partyline;
 
 class ClearExpiredCommand extends Command
 {
+    public const SUCCESS = 0;
+    public const FAILURE = 1;
+    
     /**
      * @var CacheGarbageCollector
      */

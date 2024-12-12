@@ -106,7 +106,7 @@ class CacheGarbageCollector
             $size = $this->activeFiles->getFormattedSize();
             Partyline::info("{$count} ({$size}) cache file remaining.");
         }
-        Partyline::newLine();
+        Partyline::line("\n");
 
         return $this;
     }
@@ -134,7 +134,7 @@ class CacheGarbageCollector
             Partyline::info("{$this->deletedDirectories} empty directories deleted.");
         }
 
-        Partyline::newLine();
+        Partyline::line("\n");
 
         return $this;
     }
