@@ -160,7 +160,7 @@ class CacheGarbageCollector
             return 0;
         }
 
-        return $expire;
+        return (int) $expire;
     }
 
     protected function notACacheFile(string $name): bool
